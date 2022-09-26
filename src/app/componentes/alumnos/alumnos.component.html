@@ -1,0 +1,36 @@
+<div class="alert alert-danger" role="alert" *ngIf="listado.length === 0">
+  No hay alumnos inscriptos
+</div>
+
+<section>
+  <h2>Alumnos</h2>
+  <table class="table table-striped table-success">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Nombre del alumno</th>
+        <th scope="col">Curso</th>
+        <th scope="col">Modalidad</th>
+        <th scope="col">Inscripto</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Matricula</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let alumno of listado">
+        <td scope="row">
+          <b>{{ alumno.nombre | titlecase }}</b>
+        </td>
+        <td scope="row">{{ alumno.curso }}</td>
+        <td scope="row">{{ alumno.modalidad }}</td>
+        <td scope="row">{{ alumno.fechaInscripcion | date: "dd/MM/yyyy" }}</td>
+        <td scope="row">{{ alumno.edad }}</td>
+        <td
+          scope="row"
+          ngClass="alert alert-danger ? '{{ alumno.matricula }} <20000'"
+        >
+          {{ alumno.matricula | currency }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
