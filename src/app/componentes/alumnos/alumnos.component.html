@@ -21,12 +21,17 @@
           <b>{{ alumno.nombre | titlecase }}</b>
         </td>
         <td scope="row">{{ alumno.curso }}</td>
-        <td scope="row">{{ alumno.modalidad }}</td>
+
         <td scope="row">{{ alumno.fechaInscripcion | date: "dd/MM/yyyy" }}</td>
         <td scope="row">{{ alumno.edad }}</td>
+        <td [ngSwitch]="alumno.modalidad">
+          <div *ngSwitchCase="'Online'">En linea</div>
+          <div *ngSwitchCase="'Presencial'">En persona</div>
+          <div *ngSwitchDefault>Confirmar</div>
+        </td>
         <td
           scope="row"
-          ngClass="alert alert-danger ? '{{ alumno.matricula }} <20000'"
+          [ngClass]="alumno.matricula < 10000 ? 'alert alert-danger' : ''"
         >
           {{ alumno.matricula | currency }}
         </td>

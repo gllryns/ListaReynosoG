@@ -31,6 +31,14 @@ export class AlumnosComponent {
       fechaInscripcion: '2022-03-05',
       matricula: 17000,
     },
+    {
+      nombre: 'Angulo Recto',
+      curso: 'Angular',
+      modalidad: '?',
+      edad: 35,
+      fechaInscripcion: '2022-03-01',
+      matricula: 13500,
+    },
   ];
   constructor() {}
 }
